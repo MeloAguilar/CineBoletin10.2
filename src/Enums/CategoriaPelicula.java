@@ -1,0 +1,5 @@
+package Enums;
+
+public enum CategoriaPelicula {
+    ACCION, AVENTURAS, COMEDIA, FANTASIA, TERROR, DRAMA, MUSICAL, CIENCIA_FICCION, BELICA, CRIMEN, INFANTIL;
+}
