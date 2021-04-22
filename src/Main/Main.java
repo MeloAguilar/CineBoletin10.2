@@ -1,11 +1,10 @@
 package Main;
 
-import Clases.Alquiler.Alquiler;
-import Clases.Persona.Cliente;
+import Clases.Alquiler.*;
+import Clases.Persona.*;
 import Clases.Producto.Pelicula;
-import Enums.CategoriaPelicula;
-import Enums.RecomendacionEdad;
-import Menu.Menu;
+import Enums.*;
+import Menu.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -84,7 +83,8 @@ public class Main {
         cliente = clientes.get (Menu.imprimirYRecorrerListaClientes (clientes));
         pelicula = peliculas.get (Menu.imprimirYRecorrerListaPeliculas (peliculas));
         fechaRecogida = Menu.introducirYValidarFechas ("de alquiler de la película");
-        Alquiler alquiler = new Alquiler (cliente, pelicula, fechaRecogida);
+        int dias = Menu.parseInt(Menu.pedirDato ("el número de días que va a alquilar la película"));
+        Alquiler alquiler = new Alquiler (cliente, pelicula, fechaRecogida,dias);
         alquileres.add (alquiler);
     }
 

@@ -1,7 +1,6 @@
 package Clases.Producto;
 
-import Enums.CategoriaPelicula;
-import Enums.RecomendacionEdad;
+import Enums.*;
 
 import java.time.LocalDate;
 
@@ -56,6 +55,7 @@ public class Pelicula extends Producto{
                 "\nAño de Salida: " + anioSalida +
                 "**************************************";
     }
+
 }
 
 

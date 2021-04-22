@@ -1,9 +1,9 @@
 package Clases.Alquiler;
 
-import Clases.Persona.Cliente;
-import Clases.Persona.Persona;
+import Clases.Persona.*;
+import Clases.Persona.*;
 import Clases.Producto.Pelicula;
-import Clases.Producto.Producto;
+import Clases.Producto.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,13 +13,15 @@ public class Alquiler {
     private Cliente cliente;
     private Pelicula pelicula;
     private LocalDate fechaRecogida;
-    private LocalDate fechaEntrega;
+    private int dias;
+    public static final double VALOR_INVARIABLE = 1.67;
 
-    public Alquiler(Cliente cliente, Pelicula pelicula, LocalDate fechaRecogida) {
+    public Alquiler(Cliente cliente, Pelicula pelicula, LocalDate fechaRecogida, int dias) {
         this.cliente = cliente;
         this.pelicula = pelicula;
         this.fechaRecogida = fechaRecogida;
-        setFechaEntrega ();
+        this.dias = dias;
+        getFechaEntrega ();
     }
 
     public Cliente getCliente() {
@@ -46,15 +48,15 @@ public class Alquiler {
         this.fechaRecogida = fechaRecogida;
     }
 
+
     public LocalDate getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public void setFechaEntrega() {
-            this.fechaEntrega = this.fechaRecogida.plusDays (6);
+          return  this.fechaRecogida.plusDays (this.dias);
     }
 
 
+    public double setPrecioAlquiler(){
+       return VALOR_INVARIABLE*(this.dias*0.5);
+    }
 
     @Override
     public String toString() {
@@ -62,7 +64,8 @@ public class Alquiler {
                 "\nCliente: " + this.cliente.getIdCliente () +
                 "\nPelicula: " + this.pelicula.getNombre () +
                 "\nFecha de Recogida: " + fechaRecogida +
-                "\nFecha de Entrega: " + fechaEntrega +
+                "\nFecha de Entrega: " + this.getFechaEntrega() +
+                "\nPrecio del Alquiler: " + this.setPrecioAlquiler()+"€"+
                 "\n**************************************";
     }
 }
